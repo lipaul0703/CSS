@@ -1,0 +1,29 @@
+@keyframes li-display {
+    from {font-size:medium;background-color:aliceblue}
+    to {font-size:large;background-color:blue}
+}
+@keyframes img-display {
+    from {}
+    to {font-size:large;background-color:blue}
+}
+#div-1{
+    display: flex;
+    display:block;
+    justify-content: center;
+    background-color: aqua ;
+    position: fixed ;top: 10%;
+    border: 1px solid blue;margin: 20px;
+    padding: 20px; color: rgb(64, 35, 121) ;
+    }
+div ul li:hover
+{
+    animation-name: li-display;
+    animation-duration : 2s;
+    animation-iteration-count: 2;
+}
+#img-1:hover
+{
+    animation-name: img-display;
+    animation-duration : 2s;
+    animation-iteration-count: 2;
+}
