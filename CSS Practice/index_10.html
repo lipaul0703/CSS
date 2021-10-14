@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切版練習10-RWD網頁設計</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Serif TC', serif;
+        }
+        .header{
+            background-color: rgb(15, 24, 19);
+            width: 100%;
+            height: 60px;
+            display: flex;
+            position: relative;
+        }
+        .header img{
+            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+        }
+        #btn{
+            display: none;
+        }
+        .a{
+            position: absolute;
+        }
+        .pic{
+            display: block;
+            width: 100%;
+            height: 100px;
+        }
+        .pic img{
+            width: 100%;
+            height: 100%;
+        }
+        .about{
+            width: 100%;
+            background-color: rgb(135, 185, 168);
+            text-align: center;
+        }
+        .about h1{
+            font-size: 30px;
+            padding-top: 10px;
+        }
+        .about p{
+            font-size: 20px;
+            line-height: 1.6em;
+            padding: 5px;
+        }
+        @media screen and (min-width:768px) {
+            .a{
+                display: inline-block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 60px;
+                top: 0px;
+                right: 0px;
+            }
+            .a a{
+                font-size: 20px;
+                text-decoration: none;
+                color: white;
+                display: inline-block;
+                margin: 10px;
+            }
+            .header label{
+                display: none;
+            }
+            .wrap{
+                width: 100%;
+                background-color: rgb(103, 103, 112);
+                display: flex;
+                justify-content: center;
+                align-content: center;
+            }
+            .item{
+                background-color: azure;
+                display: block;
+                display: flex;
+                flex-direction: column;
+                justify-content:center;
+                margin: 10px;
+                text-align: center;
+            }
+            .item h1{
+                font-size: 30px;
+            }
+            .item p{
+                font-size: 20px;
+                line-height: 1.4em;
+            }
+        }
+        @media screen and (max-width:768px) {
+            .header label{
+                display: inline-block;
+                border-radius: 10px;
+                background-color:grey;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                margin: 5px;
+                right: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .header label::after{
+                content: "";
+                display: block;
+                background-color: blue;
+                width: 80%;
+                border-bottom: 2px solid black ;
+                box-shadow: 0px 8px 0px, 0px -8px 0px;
+            }
+            .a{
+                width: 60px;
+                height: 150px;
+                display: block;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 60px;
+                left: -100px;
+                transition:0.5s 0.2s;
+                background-color: rgb(52, 66, 62);
+
+            }
+            .a a{
+                text-decoration: none;
+                margin: 10px;
+                color: white;
+            }
+            #btn:checked ~ .a{
+                top: 60px;
+                left: 0px;
+                background-color: rgb(52, 66, 62);
+            }
+            .wrap{
+                width: 100%;
+                background-color: rgb(103, 103, 112);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+            }
+            .item{
+                display: block;
+                display: flex;
+                flex-direction: column;
+                justify-content:center;
+                align-content: center;
+                padding: 0px 10px 10px 10px;
+                text-align: center;
+                width: 300px;
+            }
+            .item img{
+                margin: auto;
+                padding-bottom: 10px;
+                width: 300px;
+                height: 200px;
+            }
+            .item h1{
+                font-size: 30px;
+            }
+            .item p{
+                font-size: 20px;
+                line-height: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <input type="checkbox" name="" id="btn">
+        <img src="https://picsum.photos/50/50?random=1" alt="">
+        <label for="btn"></label>
+        <div class="a">
+            <a href="">關於</a>
+            <a href="">產品</a>
+            <a href="">技術</a>
+            <a href="">聯繫</a>
+        </div>
+    </div>
+    <div class="pic">
+        <img src="https://picsum.photos/400/100?random=2" alt="">
+    </div>
+    <div class="about">
+        <h1>About</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium molestiae debitis vero. Laudantium doloremque dolor itaque voluptate, inventore sint alias ducimus neque, incidunt, nostrum odio natus nisi deleniti ab molestiae.</p>
+    </div>
+    <div class="wrap">
+        <div class="item">
+            <img src="https://picsum.photos/200/200?random=3" alt="">
+            <h1>title</h1>
+            <p> Laudantium doloremque dolor itaque voluptate, inventore sint alias ducimus neque, incidunt, nostrum odio natus nisi deleniti ab molestiae.</p>
+        </div>
+        <div class="item">
+            <img src="https://picsum.photos/200/200?random=4" alt="">
+            <h1>title</h1>
+            <p> Laudantium doloremque dolor itaque voluptate, inventore sint alias ducimus neque, incidunt, nostrum odio natus nisi deleniti ab molestiae.</p>
+        </div>
+        <div class="item">
+            <img src="https://picsum.photos/200/200?random=5" alt="">
+            <h1>title</h1>
+            <p> Laudantium doloremque dolor itaque voluptate, inventore sint alias ducimus neque, incidunt, nostrum odio natus nisi deleniti ab molestiae.</p>
+        </div>
+        <div class="item">
+            <img src="https://picsum.photos/200/200?random=6" alt="">
+            <h1>title</h1>
+            <p> Laudantium doloremque dolor itaque voluptate, inventore sint alias ducimus neque, incidunt, nostrum odio natus nisi deleniti ab molestiae.</p>
+        </div>
+    </div>
+</body>
+</html>

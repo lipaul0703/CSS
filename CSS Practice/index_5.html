@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>切版練習3-人員介紹卡片</title>
+    <title>切版練習5-漂浮交錯版</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300&display=swap" rel="stylesheet">
     <style type="text/css">
         *{
@@ -13,101 +13,90 @@
             list-style: none;
             font-family: 'Noto Serif TC', serif;
         }
-        .wrap{
-            background: url(https://picsum.photos/1440/700?random=4);
-            width: 100%;
-            height: 100vh;
-            background-color: blanchedalmond;
-            display: flex;
+        .banner{
+            background-color: rgb(150, 235, 207);
+            display:flex;
             flex-wrap: wrap;
             justify-content: center;
+        }
+        .wrap{
+            width: 600px;
+            height: 100vh;
+            display: flex;
+            flex-direction: flex;
+            flex-wrap: wrap;
+            /* background-color: aqua; */
+            justify-content: center;
             align-items: center;
-
         }
         .item{
-            background-color: white;
-            border: 2px solid rgb(71, 13, 13);
-            width: 202px;
-            height: 400px;
-            display: inline-block;
-            margin: 50px;
-            text-align: center;
-            transform: translateY(0%);
-            transition: 0.5s;
-        }
-        .item h1{
-            border-bottom: 1px solid#888;
-            margin-bottom: 0.3em;
-            padding-bottom: 0.3em;
-            font-weight: 900;
-        }
-        .item p{
-            line-height: 1.6;
-        }
-        .item .txt{
+            /* background-color: blueviolet; */
+            height: 200px;
+            width: 600px;
+            display: flex;
+            align-items: center;
             position: relative;
-            padding: 20px;
         }
-        .item .txt:before{
-            height: 30px;
+        .img{
+            /* background-color: blueviolet; */
+            height: 200px;
+            width: 300px;
+        }
+        .item:nth-child(1) .txt{
+            background-color: rgba(228, 238, 84, 0.7);
+            height: 150px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: absolute;
-            content: '';
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            border-top: 30px solid transparent;
-            border-left: 101px solid white;
-            border-right: 101px solid white;
-            transform: translateY(-50%);
+            right: 10%;
         }
-
-        .item:hover{
-            transform: translateY(-10%);
+        .item:nth-child(2) .txt{
+            background-color: rgb(61, 150, 26,0.7);
+            height: 150px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: 10%;
         }
-        .item:hover .txt{
-            background-image: linear-gradient(
-                0deg,rgb(0, 225, 255) 0%,rgb(255, 136, 0) 100%);
+        .txt h1{
+            color: black;
         }
-        .item:hover .txt:before{
-            border-left: 101px rgb(255, 136, 0);
-            border-right: 101px rgb(255, 136, 0);
-        }
-        .item:hover p{
-            color: white;
-        }
-        .item:hover h1{
-            color: white;
-            border-bottom: 1px solid white;
-        }
-
 
     </style>
 </head>
 <body>
-    <div class="wrap">
-        <div class="item">
-            <img src="https://picsum.photos/200/250?random=1" alt="">
-            <div class="txt">
-                <h1>大雄</h1>
-                <p>好心腸的伸手牌</p>
+    <div class="banner">
+
+        <div class="wrap">
+            <div class="item">
+                <div class="img">
+                    <img src="https://picsum.photos/300/200?random=1">
+                </div>
+                <div class="txt">
+                    <h1>Opacity</h1>
+                    <p>利用透明作漂浮效果</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="txt">
+                    <h1>flex排版</h1>
+                    <p>大區塊呈column排列 <br>
+                        小區塊呈row排列,並作相對偏移</p>
+                </div>
+                <div class="img">
+                    <img src="https://picsum.photos/300/200?random=2">
+                </div>
             </div>
         </div>
-        <div class="item">
-            <img src="https://picsum.photos/200/250?random=2" alt="">
-            <div class="txt">
-                <h1>胖虎</h1>
-                <p>歌聲非常澎湃</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="https://picsum.photos/200/250?random=3" alt="">
-            <div class="txt">
-                <h1>小夫</h1>
-                <p>心理脆弱的富二代</p>
-            </div>
-        </div>
+
     </div>
+
 
 </body>
 </html>

@@ -47,9 +47,19 @@
             opacity: 0;
             transition:opacity 0.5s;
         }
-        .item:hover .text
-        {
+        .text p:after{
+            content: '';
+            display: block;
+            width: 0px;
+            border-bottom: 1px solid rgb(247, 251, 252);
+            margin-top: 10px;
+            transition: 0.5s 0.5s;
+        }
+        .item:hover .text{
             opacity: 0.8;
+        }
+        .item:hover .text p:after{
+            width: 150px;
         }
         #item_2{
             position: relative;
