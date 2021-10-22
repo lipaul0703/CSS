@@ -1,0 +1,34 @@
+.edit{
+  padding: 10px;
+  width: 100%;
+  height: 300px;
+  background-color: rgb(115, 58, 175);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit h1{
+  display: block;
+  margin: 10px;
+  font-size: 30px;
+}
+.edit p{
+  display: block;
+  margin: 10px;
+  font-size: 20px;
+}
+.edit input{
+  text-align: center;
+  width: 300px;
+  height : 100px;
+  display: block;
+}
+.btn{
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(41, 16, 70);
+}
+.btn input{
+  width: 200px; 
+}
