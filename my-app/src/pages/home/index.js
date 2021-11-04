@@ -74,21 +74,52 @@ const Home =() => {
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
     
-    // var bigpic = document.getElementsByClassName('bigpic');
-    // var pic = document.getElementById('pic');
-    // pic.onclick = function (){
-    //     bigpic.style.display = 'block';
-    // }
-    // bigpic.onclick = function (){
-    //     bigpic.style.display = 'none';
-    // }
-    // pick function close(){                                                                                                                                                                                                               
-    //     bigpic.style.display = 'none' ;
-    // }
-    // function open(){
-    //     bigpic.style.display = 'block';
-    // }
+    var bigimg = document.getElementById('bigimg');
+    var bigpic = document.getElementById('bigpic');
+    var p = document.getElementById('p');
+    function open(event){
+        bigpic.style.display = 'block';
+        var id = event.target.id;
+        bigimg.src = document.getElementById(id).src;
+        p.innerHTML = datas[id].desc;
+        console.log(datas);
+        bigpic.style.zIndex = '1';
+    }
+    function close(){
+        bigpic.style.display = 'none';
+        bigpic.style.zIndex = '5';
+    }
+
+
+ 
     return <div className='container'>
+            <div id='bigpic' onClick={close} style={{
+                display:`flex`,
+                justifyItems:`center`,
+                alignItems:`center`,
+                width:`100%`,
+                height:`100vh`,
+                position:`fixed`,
+                display:`none`,
+                opacity:`0.9`,
+                top:`0px`,
+                left:`0px`,
+                backgroundColor:"black",
+                }}>
+                <img id='bigimg' style={{
+                display:`inline-block`,
+                float:`left`,
+                width:`400px`,
+                height:`400px`,
+                margin:`80px 0px 0px 20px `,
+                }} src='https://picsum.photos/600/600?random=11' alt="" />
+                <p id='p' style={{
+                    margin:`80px 50px 0px 0px`,
+                    fontSize:`40px`,
+                    color:`white`,
+                }}>default</p>
+            </div>
+            
         <div className='search'>
             <input 
                 type='text' 
@@ -114,23 +145,21 @@ const Home =() => {
                         }} key={src} src={src}/>
                     })}
                 </div>
-                <div className='index'>imgs_index</div>
+                <div className='index'></div>
                 <div className='time'>
                     {App(20)}
                 </div>
             </div>
         </div>
         <div className='boxs'>
-            <div className='box1 box'>left</div>
+            <div className='box1 box'></div>
             <div className='box2 box'>
-                <div id='bigpic' >
-                    <img src="" alt="" />
-                </div>
             {datas.map(item => {
-                        return  <div className='pic'>
-                            <img key={item.id} className='img' id={item.id} src={item.img}/>
+                        return  <div className='pic'  onClick={open}>
+                            <img key={item.id} className='img' id={item.id}  src={item.img}/>
                             <h1>{item.title}</h1>
                             <p>TWD{item.price}</p>
+                            <h2 id={'p'+item.id}>{item.desc}</h2>
                             </div> 
                     })}
             </div>
@@ -143,4 +172,8 @@ const Home =() => {
 
     </div>
 };
+
+
+
+
 export default Home;
