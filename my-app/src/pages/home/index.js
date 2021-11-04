@@ -89,9 +89,6 @@ const Home =() => {
         bigpic.style.display = 'none';
         bigpic.style.zIndex = '5';
     }
-
-
- 
     return <div className='container'>
             <div id='bigpic' onClick={close} style={{
                 display:`flex`,
@@ -152,7 +149,14 @@ const Home =() => {
             </div>
         </div>
         <div className='boxs'>
-            <div className='box1 box'></div>
+            <div className='box1 box'>
+                <button>selector_1</button>
+                <button>selector_2</button>
+                <button>selector_3</button>
+                <button>selector_4</button>
+                <button>selector_5</button>
+                <button>selector_6</button>
+            </div>
             <div className='box2 box'>
             {datas.map(item => {
                         return  <div className='pic'  onClick={open}>
