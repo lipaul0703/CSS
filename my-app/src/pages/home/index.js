@@ -4,6 +4,14 @@ import './index.css';
 import "./reset.css";
 
 const Home =() => {
+    const url = 'https://demojson.herokuapp.com/cart'
+    const [datas, setData] = useState([]);
+    async function getData(url){
+        const res = await fetch(url);
+        const repo = await res.json();
+        setData(repo);
+    }
+    useEffect(() => {getData(url)},[])
 
     //廣告輪播--照片取自網路假圖
     /**
@@ -29,7 +37,7 @@ const Home =() => {
         }, 300);
         return slider;
     }
-    const imgs = [
+    const ads = [
         'https://picsum.photos/300/100?random=1',
         'https://picsum.photos/300/100?random=2',
         'https://picsum.photos/300/100?random=3',
@@ -41,26 +49,7 @@ const Home =() => {
         'https://picsum.photos/300/100?random=9',
         'https://picsum.photos/300/100?random=10',
     ]
-    
-    
-    const [repo, setRepo] = useState();
-    
-    useEffect(
-        () => {
-            fetch( 'https://demojson.herokuapp.com/cart',{method:"GET"})
-            .then(res => res.json())
-            .then(data => {
-                setRepo(data);
-                console.log(data);
-            })
-            .catch(e => {
-                console.log(e);
-            })
-        },[])
-
-        
-    // https://f.ecimg.tw/items/
-    const slider = useSlider(imgs.length);
+    const slider = useSlider(ads.length);
     //倒數計時10s
     function App(x) {
         const [seconds, setSeconds] = React.useState(x);
@@ -78,14 +67,27 @@ const Home =() => {
               {seconds}
           </div>
         );
-      }
+    }
       
-
     function top() {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
-
+    
+    // var bigpic = document.getElementsByClassName('bigpic');
+    // var pic = document.getElementById('pic');
+    // pic.onclick = function (){
+    //     bigpic.style.display = 'block';
+    // }
+    // bigpic.onclick = function (){
+    //     bigpic.style.display = 'none';
+    // }
+    // pick function close(){                                                                                                                                                                                                               
+    //     bigpic.style.display = 'none' ;
+    // }
+    // function open(){
+    //     bigpic.style.display = 'block';
+    // }
     return <div className='container'>
         <div className='search'>
             <input 
@@ -102,27 +104,35 @@ const Home =() => {
         </div>
         <div className='banner'>
             <div className='scroller'>
-
                 <div className='inner' style={{
-                    width: `${imgs.length * 100}%`,
-                    transform:`translateX(-${100*slider/imgs.length}%)`,
+                    width: `${ads.length * 100}%`,
+                    transform:`translateX(-${100*slider/ads.length}%)`,
                 }}>
-                    {imgs.map(src =>{
+                    {ads.map(src =>{
                         return <img style={{
-                            width: `${100 / imgs.length}%`,
+                            width: `${100 / ads.length}%`,
                         }} key={src} src={src}/>
                     })}
                 </div>
-
                 <div className='index'>imgs_index</div>
                 <div className='time'>
-                    {App(20)} 
+                    {App(20)}
                 </div>
             </div>
         </div>
         <div className='boxs'>
             <div className='box1 box'>left</div>
-            <div className='box2 box'>center
+            <div className='box2 box'>
+                <div id='bigpic' >
+                    <img src="" alt="" />
+                </div>
+            {datas.map(item => {
+                        return  <div className='pic'>
+                            <img key={item.id} className='img' id={item.id} src={item.img}/>
+                            <h1>{item.title}</h1>
+                            <p>TWD{item.price}</p>
+                            </div> 
+                    })}
             </div>
             <div className='box3 box'>
                 <div className='gotop'>

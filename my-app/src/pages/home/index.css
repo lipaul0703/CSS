@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   top: 10px;
-  z-index: 1;
+  z-index: 2;
 }
 .text{
   text-align:center ;
@@ -16,13 +16,13 @@
   height: 56px;
 }
 .container{
-  z-index: 2;
-  background-color: rgb(168, 164, 164);
+  z-index: 3;
+  /* background-color: rgb(168, 164, 164); */
   margin: 75px 20px 20px 20px;
 }
 .banner{
-  z-index: 3;
-  background-color: gray;
+  z-index: 4;
+  /* background-color: gray; */
 }
 .time{
   text-align: center;
@@ -31,24 +31,64 @@
 }
 .boxs{
   display: flex;
+  z-index: 5;
 }
 .box{
   width: 100px;
-  height: 800px;
   text-align: center;
 }
 .box1{
-  background-color: rgb(151, 163, 135);
   border: 1px solid black;
   flex:2; 
 }
 .box2{
-  background-color: rgb(151, 163, 135);
+  padding: 40px 0px 0px 0px;
   border: 1px solid black;
-  flex:6; 
+  flex:7; 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.box2 div{
+  position: relative;
+  width: 250px;
+  height: 330px;
+  
+}
+.box2 div:hover img{
+  opacity: 0.5;
+}
+
+.pic img{
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  border-radius: 40px;
+  opacity:1 ;
+  transform:opacity .5ms .5ms;
+}
+#bigpic {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left:0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: red;  
+  z-index: 1;
+}
+.box2 h1{
+  padding: 0px 20px 0px 20px;
+}
+.box2 p{
+  color: red;
+  padding: 20px;
+  text-align: end;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
 .box3{
-  background-color: rgb(151, 163, 135);
   flex:1; 
 }
 .scroller {
